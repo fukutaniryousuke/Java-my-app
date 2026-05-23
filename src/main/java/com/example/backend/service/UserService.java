@@ -36,4 +36,14 @@ public class UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+    // ユーザー更新
+    public User updateUser(User user) {
+        // 更新するユーザーの情報を取得
+        User response = this.getUserById(user.getId());
+        // 更新する名前を設定する
+        response.setName(user.getName());
+        // 更新処理
+        return userRepository.save(response);
+    }
 }
