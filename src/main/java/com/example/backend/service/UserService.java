@@ -41,8 +41,10 @@ public class UserService {
     public User updateUser(User user) {
         // 更新するユーザーの情報を取得
         User response = this.getUserById(user.getId());
-        // 更新する名前を設定する
+        // 更新する値を設定する
         response.setName(user.getName());
+        response.setEmail(user.getEmail());
+        response.setPassword(user.getPassword());
         // 更新処理
         return userRepository.save(response);
     }
